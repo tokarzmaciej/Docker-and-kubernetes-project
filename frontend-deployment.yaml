@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend-deployment
+  namespace: development
+
+spec:
+  template: 
+    metadata: 
+      labels:
+        app: myfrontend
+        component: frontend
+        type: frontend
+    spec: 
+      containers:
+        - name: frontend-container
+          image: maciejtokarz/project:Dev-f-0-1
+          ports:
+          - containerPort: 80
+          
+  replicas: 1
+  selector:
+    matchLabels:
+      type: frontend
