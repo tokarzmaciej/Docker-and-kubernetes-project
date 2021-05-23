@@ -15,3 +15,7 @@ kubectl apply -f ingress-service.yaml
 kubectl get ingress -n development  
 ### - backend :
 docker build -t maciejtokarz/project:Dev-b-0-1 .  
+docker push maciejtokarz/project:Dev-b-0-1  
+kubectl apply -f backend-clusterip.yaml -n development  
+kubectl apply -f backend-deployment.yaml -n development  
+kubectl apply -f ingress-service.yaml -n development  

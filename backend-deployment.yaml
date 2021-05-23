@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend-deployment
+
+spec:
+  template: 
+    metadata:
+      name: backend-pod 
+      labels:
+        app: mybackend
+        component: backend
+        type: backend
+    spec: 
+      containers:
+        - name: backend-contaier
+          image: maciejtokarz/project:Dev-b-0-1
+          ports:
+            - containerPort: 5000
+          
+  replicas: 1
+  selector:
+    matchLabels:
+      type: backend
+ 
