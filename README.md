@@ -43,3 +43,9 @@ kubectl apply -f mongodb-deployment.yaml -n development
 docker build -t maciejtokarz/project:Dev-b-0-2 .  
 docker push maciejtokarz/project:Dev-b-0-2  
 kubectl apply -f backend-deployment.yaml -n development  
+
+# Prod-0:
+
+kubectl create namespace production  
+kubectl apply -f ./ -n production
+kubectl get all -n production  
