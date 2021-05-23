@@ -4,6 +4,7 @@ COPY ./package.json .
 COPY ./yarn.lock .
 RUN yarn install --frozen-lockfile
 COPY . .
+ENV REACT_APP_BACKEND_HOST=http://localhost/api
 RUN yarn build
 
 FROM nginx:alpine

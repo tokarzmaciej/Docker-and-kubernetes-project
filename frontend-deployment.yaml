@@ -3,11 +3,11 @@ kind: Deployment
 
 metadata:
   name: frontend-deployment
-  namespace: development
 
 spec:
   template: 
-    metadata: 
+    metadata:
+      name: frontend-pod
       labels:
         app: myfrontend
         component: frontend
@@ -15,10 +15,9 @@ spec:
     spec: 
       containers:
         - name: frontend-container
-          image: maciejtokarz/project:Dev-f-0-1
+          image: maciejtokarz/project:Dev-f-0-3
           ports:
-          - containerPort: 80
-          
+          - containerPort: 80  
   replicas: 1
   selector:
     matchLabels:

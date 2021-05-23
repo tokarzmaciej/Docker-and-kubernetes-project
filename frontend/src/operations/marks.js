@@ -5,11 +5,12 @@ import {
     MARK_PATCH_REQUEST, MARK_PATCH_SUCCESS, MARK_PATCH_FAILURE
 
 } from "../types/marks";
+import { host } from "./host";
 
 
 export const postMark = (payload) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/createMark`,
+        endpoint: `${host}/students/createMark`,
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -36,7 +37,7 @@ export const postMark = (payload) => ({
 
 export const deleteMark = (idStudent, idSubject, idMark) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/subjects/${idSubject}/marks/${idMark}`,
+        endpoint: `${host}/students/subjects/${idSubject}/marks/${idMark}`,
         method: 'DELETE',
         headers: {
             "Accept": "application/json",
@@ -61,7 +62,7 @@ export const deleteMark = (idStudent, idSubject, idMark) => ({
 
 export const patchMark = (payload, idMark) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/marks/${idMark}`,
+        endpoint: `${host}/students/marks/${idMark}`,
         method: 'PATCH',
         body: JSON.stringify(payload),
         headers: {

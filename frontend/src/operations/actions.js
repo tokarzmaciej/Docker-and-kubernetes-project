@@ -3,11 +3,12 @@ import {
     ACTIONS_GET_FAILURE, ACTIONS_GET_REQUEST, ACTIONS_GET_SUCCESS,
     ACTIONS_POST_FAILURE, ACTIONS_POST_REQUEST, ACTIONS_POST_SUCCESS
 } from "../types/actions";
+import { host } from "./host";
 
 
 export const getActions = () => ({
     [RSAA]: {
-        endpoint: 'http://localhost:5000/actions',
+        endpoint: `${host}/actions`,
         method: 'GET',
         headers: {
             "Accept": "application/json",
@@ -22,7 +23,7 @@ export const getActions = () => ({
 
 export const postAction = (payload) => ({
     [RSAA]: {
-        endpoint: 'http://localhost:5000/actions',
+        endpoint: `${host}/actions`,
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {

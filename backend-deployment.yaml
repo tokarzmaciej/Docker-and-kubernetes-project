@@ -15,9 +15,16 @@ spec:
     spec: 
       containers:
         - name: backend-contaier
-          image: maciejtokarz/project:Dev-b-0-1
+          image: maciejtokarz/project:Dev-b-0-2
           ports:
             - containerPort: 5000
+          env:
+          - name: MONGO_HOST
+            value: mongobd-clusterip
+          - name: MONGO_PORT
+            value: "27017"
+          - name: MONGO_DATABASE
+            value: local
           
   replicas: 1
   selector:

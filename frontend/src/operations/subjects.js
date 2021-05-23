@@ -5,11 +5,11 @@ import {
     SUBJECT_PATCH_REQUEST, SUBJECT_PATCH_SUCCESS, SUBJECT_PATCH_FAILURE
 
 } from "../types/subjects";
-
+import { host } from "./host";
 
 export const postSubject = (payload, idStudent) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/${idStudent}/subjects`,
+        endpoint: `${host}/${idStudent}/subjects`,
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -25,7 +25,7 @@ export const postSubject = (payload, idStudent) => ({
 
 export const deleteSubject = (idStudent, idSubject) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/${idStudent}/subjects/${idSubject}`,
+        endpoint: `${host}/${idStudent}/subjects/${idSubject}`,
         method: 'DELETE',
         headers: {
             "Accept": "application/json",
@@ -40,7 +40,7 @@ export const deleteSubject = (idStudent, idSubject) => ({
 
 export const patchSubject = (payload, idStudent, idSubject) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/${idStudent}/subjects/${idSubject}`,
+        endpoint: `${host}/${idStudent}/subjects/${idSubject}`,
         method: 'PATCH',
         body: JSON.stringify(payload),
         headers: {

@@ -6,10 +6,11 @@ import {
     STUDENT_PATCH_FAILURE, STUDENT_PATCH_SUCCESS, STUDENT_PATCH_REQUEST
 
 } from "../types/students";
+import { host } from "./host";
 
 export const getStudents = () => ({
     [RSAA]: {
-        endpoint: 'http://localhost:5000/students',
+        endpoint: `${host}/students`,
         method: 'GET',
         headers: {
             "Accept": "application/json",
@@ -25,7 +26,7 @@ export const getStudents = () => ({
 
 export const postStudent = (payload) => ({
     [RSAA]: {
-        endpoint: 'http://localhost:5000/students',
+        endpoint: `${host}/students`,
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -41,7 +42,7 @@ export const postStudent = (payload) => ({
 
 export const deleteStudent = (payload) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/${payload}`,
+        endpoint: `${host}/students/${payload}`,
         method: 'DELETE',
         headers: {
             "Accept": "application/json",
@@ -56,7 +57,7 @@ export const deleteStudent = (payload) => ({
 
 export const patchStudent = (payload, idStudent) => ({
     [RSAA]: {
-        endpoint: `http://localhost:5000/students/${idStudent}`,
+        endpoint: `${host}/students/${idStudent}`,
         method: 'PATCH',
         body: JSON.stringify(payload),
         headers: {
