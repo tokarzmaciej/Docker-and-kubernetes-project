@@ -19,3 +19,8 @@ docker push maciejtokarz/project:Dev-b-0-1
 kubectl apply -f backend-clusterip.yaml -n development  
 kubectl apply -f backend-deployment.yaml -n development  
 kubectl apply -f ingress-service.yaml -n development  
+kubectl apply -f mongodb-clusterip.yaml -n development  
+kubectl apply -f mongodb-configMap.yaml -n development  
+kubectl apply -f mongodb-pv.yaml -n development  
+kubectl apply -f mongodb-pvc.yaml -n development  
+kubectl apply -f mongodb-deployment.yaml -n development  
