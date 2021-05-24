@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: mongodb-prod-deployment
+  name: mongodb-deployment
   labels:
     app: mongodb
     type: db
@@ -10,7 +10,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: mongodb-prod-pod
+      name: mongodb-pod
       labels:
         app: mongodb
         component: mongodb
@@ -18,20 +18,20 @@ spec:
 
     spec: 
       containers:
-        - name: mongodb-prod-container
+        - name: mongodb-container
           image: mongo
           ports:
           - containerPort: 27017
           volumeMounts:
             - mountPath: /data/db
-              name: mongodb-prod-volume
+              name: mongodb-volume
           envFrom:
             - configMapRef:
-                name: mongodb-prod-config
+                name: mongodb-config
       volumes:
-        - name: mongodb-prod-volume
+        - name: mongodb-volume
           persistentVolumeClaim:
-            claimName: mongodb-prod-pvc 
+            claimName: mongodb-pvc 
            
   replicas: 1
   selector:

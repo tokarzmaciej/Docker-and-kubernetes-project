@@ -4,7 +4,7 @@ const app = express();
 const students = require('./routes/students');
 const subjects = require('./routes/subjects');
 const marks = require('./routes/marks');
-const actions = require('./routes/actions')
+const actions = require('./routes/actions');
 
 app.use(cors());
 app.use(express.json());
@@ -12,31 +12,22 @@ app.use(express.json());
 app.use('/students', students);
 students.use('/:idStudent/subjects', subjects);
 students.use('/', marks);
-app.use('/actions', actions)
+app.use('/actions', actions);
+
 
 require('dotenv').config();
-const dbConnData = {
-  host: process.env.MONGO_HOST,
-  port: process.env.MONGO_PORT,
-  database: process.env.MONGO_DATABASE
-};
-// Łączymy się z bazą i „stawiamy” serwer API
-// Do kontaktu z serwerem MongoDB wykorzystamy bibliotekę Mongoose
+require('./config/mongodbClient');
 
-const mongoose = require('mongoose');
+const clientRedis = require('./config/redisClient');
 
-mongoose
-  .connect(`mongodb://${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  })
-  .then(response => {
-    console.log(`Connected to MongoDB. Database name: "${response.connections[0].name}"`)
-    const port = process.env.PORT || 5000
-    app.listen(port, () => {
-      console.log(`API server listening at http://localhost:${port}`);
-    });
-  })
-  .catch(error => console.error('Error connecting to MongoDB', error));
+clientRedis.on('error', err => {
+  console.error('Error connecting to Redis', err);
+});
+clientRedis.on('connect', () => {
+  console.log(`Connected to Redis.`)
+});
 
+const port = 5000
+app.listen(port, () => {
+  console.log(`API server listening at http://localhost:${port}`);
+});

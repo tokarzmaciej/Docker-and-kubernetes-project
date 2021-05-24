@@ -1,28 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const Action = require('../models/Action');
+const clientRedis = require('../config/redisClient');
 
 
 router.get('/', async (req, res) => {
     try {
-        const allActions = await Action.find()
-        res.send({ allActions: allActions })
-
+        const find = await clientRedis.smembers(`actions`);
+        return res.send({ allActions: find });
     } catch (error) {
-        res.send("error" + error);
-
+        return res.send('error' + error);
     }
 });
 
+
 router.post('/', async (req, res) => {
     try {
-        const data = new Date()
-        const newAction = await Action.create({ ...req.body, date: data })
-        res.send({ newAction: newAction })
-
+        const action = req.body.action;
+        await clientRedis.sadd(`actions`, action);
+        res.send({ newAction: action })
     } catch (error) {
-        res.send("error" + error);
-
+        return res.send('error' + error);
     }
 });
 

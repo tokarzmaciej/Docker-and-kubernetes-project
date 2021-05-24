@@ -47,5 +47,23 @@ kubectl apply -f backend-deployment.yaml -n development
 # Prod-0:
 
 kubectl create namespace production  
-kubectl apply -f ./ -n production
+kubectl apply -f ./ -n production  
 kubectl get all -n production  
+
+# Dev-1:
+
+## - Frontend
+### * Dev-f-0-1:
+## - Backend
+### * Dev-b-0-3:
+docker build -t maciejtokarz/project:Dev-b-0-3 .  
+docker push maciejtokarz/project:Dev-b-0-3   
+kubectl apply -f redis-clusterip.yaml -n development  
+kubectl apply -f redis-deployment.yaml -n development  
+kubectl apply -f backend-deployment.yaml -n development  
+kubectl delete deployment.apps/mongodb-deployment -n development  
+kubectl delete pvc mongodb-pvc -n development  
+kubectl delete pv mongodb-pv -n development  
+kubectl apply -f mongodb-pv.yaml -n development  
+kubectl apply -f mongodb-pvc.yaml -n development  
+kubectl apply -f mongodb-deployment.yaml -n development  

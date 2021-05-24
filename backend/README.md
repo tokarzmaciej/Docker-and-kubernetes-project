@@ -1,2 +1,2 @@
-# REST API dla bazy MongoDB
+# REST API dla bazy MongoDB i Redis
 
