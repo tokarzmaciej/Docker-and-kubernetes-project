@@ -15,7 +15,7 @@ spec:
     spec: 
       containers:
         - name: frontend-container
-          image: maciejtokarz/project:Dev-f-0-3
+          image: maciejtokarz/project:Dev-f-0-4
           ports:
           - containerPort: 80  
   replicas: 1

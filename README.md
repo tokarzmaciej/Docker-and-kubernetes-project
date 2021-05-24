@@ -53,7 +53,10 @@ kubectl get all -n production
 # Dev-1:
 
 ## - Frontend
-### * Dev-f-0-1:
+### * Dev-f-0-4:  
+docker build -t maciejtokarz/project:Dev-f-0-4 .  
+docker push maciejtokarz/project:Dev-f-0-4  
+kubectl apply -f frontend-deployment.yaml -n development  
 ## - Backend
 ### * Dev-b-0-3:
 docker build -t maciejtokarz/project:Dev-b-0-3 .  
