@@ -23,4 +23,15 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+router.delete('/', async (req, res) => {
+    try {
+        const action = req.body.action;
+        await clientRedis.srem(`actions`, action);
+        res.send({ deletedAction: action })
+    } catch (error) {
+        return res.send('error' + error);
+    }
+});
+
 module.exports = router;

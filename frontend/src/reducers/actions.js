@@ -1,4 +1,4 @@
-import { ACTIONS_GET_SUCCESS, ACTIONS_POST_SUCCESS } from "../types/actions";
+import { ACTIONS_GET_SUCCESS, ACTIONS_POST_SUCCESS, ACTIONS_DELETE_SUCCESS } from "../types/actions";
 
 
 const actions = (state = [], action) => {
@@ -11,6 +11,10 @@ const actions = (state = [], action) => {
             return [
                 ...state,
                 action.payload.newAction
+            ]
+        case ACTIONS_DELETE_SUCCESS:
+            return [
+                ...state.filter(el => el !== action.payload.deletedAction)
             ]
         default:
             return state;

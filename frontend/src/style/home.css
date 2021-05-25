@@ -53,22 +53,21 @@
   margin-bottom: 5%;
 }
 
-#container-home .actions .box {
+#container-home .actions .notification {
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
-#container-home .actions .box p {
+#container-home .actions .notification p {
   font-size: 30px;
-  text-align: center;
 }
 
-#container-home .actions .box .is-large {
+#container-home .actions .notification .is-large {
   border-bottom: 2px solid #615d5d;
   margin: 0% 5% 0% 5%;
 }
 
-#container-home .actions .box .is-small {
+#container-home .actions .notification .is-small {
   text-align: right;
   padding-top: 3%;
 }
