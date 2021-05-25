@@ -1,15 +1,15 @@
 ﻿apiVersion: v1
 kind: PersistentVolume
 metadata: 
-  name: mongodb-prod-pv
+  name: mongodb-pv
   labels:
     type: local
 
 spec: 
   storageClassName: manual
   capacity:
-    storage: 20Mi
+    storage: 20Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/data/prod/mongodb"
+    path: "/data/mongodb"

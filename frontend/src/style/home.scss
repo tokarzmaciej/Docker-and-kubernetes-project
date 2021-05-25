@@ -28,14 +28,16 @@
                 margin-top: 13%;
                 margin-bottom: 5%;
             }
-        .action{
+        .box{
             margin-top: 5%;
             margin-bottom: 5%;
             p{
                 font-size: 30px;
+                text-align: center;
             }
             .is-large{
-                border-bottom: 1px solid gray ;
+                border-bottom: 2px solid rgb(97, 93, 93) ;
+                margin: 0% 5% 0% 5%
             }
             .is-small{
                     text-align: right;
