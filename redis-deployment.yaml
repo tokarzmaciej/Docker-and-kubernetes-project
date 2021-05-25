@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: redis-deployment
+  name: redis-prod-deployment
   labels:
     app: redis
     type: db
@@ -10,14 +10,14 @@ metadata:
 spec:
   template:
     metadata:
-      name: redis-pod
+      name: redis-prod-pod
       labels:
         app: redis
         component: redis
         type: db
     spec: 
       containers:
-        - name: redis-container
+        - name: redis-prod-container
           image: redis:alpine
           ports:
           - containerPort: 6379

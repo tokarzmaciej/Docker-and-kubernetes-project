@@ -70,3 +70,9 @@ kubectl delete pv mongodb-pv -n development
 kubectl apply -f mongodb-pv.yaml -n development  
 kubectl apply -f mongodb-pvc.yaml -n development  
 kubectl apply -f mongodb-deployment.yaml -n development  
+
+# Prod-1:
+kubectl delete deployment.apps/mongodb-prod-deployment -n production  
+kubectl delete pvc mongodb-prod-pvc -n production  
+kubectl apply -f ./ -n production  
+kubectl get all -n production  
