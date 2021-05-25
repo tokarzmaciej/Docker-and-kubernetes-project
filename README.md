@@ -76,3 +76,24 @@ kubectl delete deployment.apps/mongodb-prod-deployment -n production
 kubectl delete pvc mongodb-prod-pvc -n production  
 kubectl apply -f ./ -n production  
 kubectl get all -n production  
+
+# Dev-2:
+
+## - Frontend
+### * Dev-f-0-5:  
+docker build -t maciejtokarz/project:Dev-f-dev-0-5 .  
+docker push maciejtokarz/project:Dev-f-dev-0-5  
+kubectl apply -f ingress-service.yaml -n development  
+kubectl apply -f frontend-deployment.yaml -n development  
+## - Backend
+### * Dev-b-0-4:
+docker build -t maciejtokarz/project:Dev-b-0-4 .  
+docker push maciejtokarz/project:Dev-b-0-4  
+kubectl apply -f backend-configMap.yaml -n development  
+kubectl apply -f backend-deployment.yaml -n development  
+kubectl delete deployment.apps/mongodb-deployment -n development  
+kubectl delete pvc mongodb-pvc -n development  
+kubectl delete pv mongodb-pv -n development  
+kubectl apply -f mongodb-pv.yaml -n development  
+kubectl apply -f mongodb-pvc.yaml -n development  
+kubectl apply -f mongodb-deployment.yaml -n development  

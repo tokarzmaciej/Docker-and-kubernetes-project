@@ -83,8 +83,8 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent, creat
                             <option>female</option>
                         </select>
                     </div>
-                    <button className="button is-rounded is-danger" onClick={() => setSort(true)}>A-Z</button>
-                    <button className="button is-rounded is-info" onClick={() => setSort(false)}> Z-A</button>
+                    <button className="button is-rounded has-background-info" onClick={() => setSort(true)}>A-Z</button>
+                    <button className="button is-rounded has-background-grey-light" onClick={() => setSort(false)}> Z-A</button>
                 </div>
 
                 <div className="create-student">
