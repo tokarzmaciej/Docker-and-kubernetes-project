@@ -97,3 +97,18 @@ kubectl delete pv mongodb-pv -n development
 kubectl apply -f mongodb-pv.yaml -n development  
 kubectl apply -f mongodb-pvc.yaml -n development  
 kubectl apply -f mongodb-deployment.yaml -n development  
+
+# Prod-2:
+docker build -t maciejtokarz/project:Dev-f-prod-0-5 .  
+docker push maciejtokarz/project:Dev-f-prod-0-5  
+kubectl apply -f ./ -n production  
+kubectl get all -n production  
+
+# Dokumentacja:
+
+Ilość replik: 
+- frontend: 5
+- backend: 5
+
+Zakładam, że moja aplikacja będzie używana głównie w szkole, w której korzystanie z aplikacji jest zróżnicowane, ponieważ podczas trwania zajęć najczęściej wzrasta wykorzystywanie aplikacji. Uznałem, że moja aplikacja powinna być gotowa na takie sytuacje, aby zapewnić możliwość płynnego użytkowania, dlatego oprogramowanie jest przygotowane na nawet 5 krotne zapotrzebowanie. Udostępniłem także 20Gi pamięci i przydzieliłem 15Gi dla aplikacji, abym móc przechowywać wszystkie zapisywane dane.
+

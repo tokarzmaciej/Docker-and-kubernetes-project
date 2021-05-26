@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: backend-deployment
+  name: backend-prod-deployment
 
 spec:
   template: 
     metadata:
-      name: backend-pod 
+      name: backend-prod-pod 
       labels:
         app: mybackend
         component: backend
         type: backend
     spec: 
       containers:
-        - name: backend-container
+        - name: backend-prod-container
           image: maciejtokarz/project:Dev-b-0-4
           ports:
             - containerPort: 5000
           envFrom:
             - configMapRef:
-                name: backend-config
+                name: backend-prod-config
           
   replicas: 5
   selector:

@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: PersistentVolumeClaim
 metadata: 
-  name: mongodb-pvc
+  name: mongodb-prod-pvc
 
 spec: 
   storageClassName: manual

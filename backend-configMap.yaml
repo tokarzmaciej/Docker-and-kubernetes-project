@@ -2,12 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 
 metadata:
-  name: backend-config
+  name: backend-prod-config
 
 data:
   MONGO_INITDB_DATABASE: local
-  MONGO_HOST: mongobd-clusterip
+  MONGO_HOST: mongobd-prod-clusterip
   MONGO_PORT: "27017"
   MONGO_DATABASE: local
-  REDIS_HOST: redis-clusterip
+  REDIS_HOST: redis-prod-clusterip
   REDIS_PORT: "6379"
