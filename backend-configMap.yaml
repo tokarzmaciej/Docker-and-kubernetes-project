@@ -5,7 +5,6 @@ metadata:
   name: backend-prod-config
 
 data:
-  MONGO_INITDB_DATABASE: local
   MONGO_HOST: mongobd-prod-clusterip
   MONGO_PORT: "27017"
   MONGO_DATABASE: local
