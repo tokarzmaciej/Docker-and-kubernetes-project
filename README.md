@@ -108,7 +108,13 @@ kubectl get all -n production
 
 Ilość replik: 
 - frontend: 5
-- backend: 5
+- backend: 5  
 
-Zakładam, że moja aplikacja będzie używana głównie w szkole, w której korzystanie z aplikacji jest zróżnicowane, ponieważ podczas trwania zajęć najczęściej wzrasta wykorzystywanie aplikacji. Uznałem, że moja aplikacja powinna być gotowa na takie sytuacje, aby zapewnić możliwość płynnego użytkowania, dlatego oprogramowanie jest przygotowane na nawet 5 krotne zapotrzebowanie. Udostępniłem także 20Gi pamięci i przydzieliłem 15Gi dla aplikacji, abym móc przechowywać wszystkie zapisywane dane.
+Hosty:
+- frontend-prod.127-0-0-1.sslip.io  
+- backend-prod.127-0-0-1.sslip.io  
+- frontend-dev.127-0-0-1.sslip.io  
+- backend-dev.127-0-0-1.sslip.io  
+
+Zakładam, że moja aplikacja będzie używana głównie w szkole, w której korzystanie z aplikacji jest zróżnicowane, ponieważ podczas trwania zajęć najczęściej wzrasta wykorzystywanie aplikacji. Uznałem, że moja aplikacja powinna być gotowa na takie sytuacje, aby zapewnić możliwość płynnego użytkowania, dlatego oprogramowanie jest przygotowane na nawet 5 krotne zapotrzebowanie. Udostępniłem także 20Gi pamięci i przydzieliłem 15Gi dla aplikacji, aby móc przechowywać wszystkie zapisywane dane.
 
