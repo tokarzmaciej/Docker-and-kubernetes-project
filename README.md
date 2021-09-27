@@ -1,4 +1,6 @@
-# maciej-tokarz-T-C-project
+# Docker and kubernetes project
+
+Projekt z przedmiotu technologie chmurowe na Uniwersytecie Gdańskim, podczas którego uczyłem się koncepcji dockera i kubernetesa wdrażajac je w jedną z moich aplikacji https://github.com/tokarzmaciej/School-register-app
 
 # Dev-0:
 
